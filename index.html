@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Northpeak — B2B Growth Consulting</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="logo-mark">N</span>Northpeak</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#clients">Clients</a>
+      <a href="#testimonials">Results</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="btn btn-primary" onclick="openBooking()">Book a Call</button>
+      <button class="menu-btn" id="menuBtn" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> B2B Growth Consulting</span>
+        <h1>Your SDRs are booking meetings <span class="accent">that never close</span>.</h1>
+        <p class="sub">We fix the handoff between paid ads and sales for B2B software teams. We read the last 90 days of your CRM, kill the campaigns creating junk leads, and rebuild the follow-up sequence your AEs will actually use.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary btn-lg" onclick="openBooking()">Book a Free Call →</button>
+          <a href="#pricing" class="btn btn-ghost btn-lg">View Plans</a>
+        </div>
+        <div class="trust">
+          <div class="t-item"><div class="t-num">$137.4M</div><div class="t-lab">Pipeline influenced</div></div>
+          <div class="t-item"><div class="t-num">3.7×</div><div class="t-lab">Median ROI in 6 mo</div></div>
+          <div class="t-item"><div class="t-num">113</div><div class="t-lab">Engagements since 2018</div></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div>
+          <img class="hero-shot" src="images/team-highfive.jpg" alt="A client team working through a funnel review">
+          <div class="hero-shot-cap">A funnel review in Portland, October. We print the CRM and mark it up by hand.</div>
+        </div>
+        <div class="hero-card">
+          <div class="hc-top">
+            <div class="hc-ava" style="background-image:url('images/avatar-owen.jpg')">NB</div>
+            <div><b>Discovery Call</b><small>30 min · no pitch, just fit</small></div>
+          </div>
+          <div class="hc-line"><span>What we review</span><span>Current funnel</span></div>
+          <div class="hc-line"><span>Where you lose deals</span><span class="pill-ok">Diagnosed</span></div>
+          <div class="hc-line"><span>Recommended plan</span><span>Custom</span></div>
+          <div class="hc-line"><span>Cost</span><span class="pill-ok">Free</span></div>
+          <div class="hc-line" style="border-bottom:none;"><span>Next step</span><span>Strategy roadmap</span></div>
+          <button class="btn btn-primary" style="width:100%;margin-top:18px;" onclick="openBooking()">Reserve your slot</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="block services" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">What we do</div>
+        <h2>Senior-led services, end to end</h2>
+        <p>No bloated retainers. You get a small senior team that owns outcomes.</p>
+      </div>
+      <div class="svc-grid" id="svcGrid"></div>
+    </div>
+  </section>
+
+  <!-- LOGO WALL -->
+  <section class="logos" id="clients">
+    <div class="wrap">
+      <p class="lab">Teams we've worked with</p>
+      <div class="logo-row" id="logoRow"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="block quotes" id="testimonials">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">Client results</div>
+        <h2>What founders &amp; CMOs say</h2>
+        <p>Numbers their CFOs actually recognised, pulled from the last 90 days of their CRM.</p>
+      </div>
+      <div class="q-grid" id="qGrid"></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="block" id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-tag">Pricing</div>
+        <h2>Plans that scale with you</h2>
+        <p>Monthly engagements. Pause or cancel anytime. No setup fees.</p>
+      </div>
+      <div class="price-grid" id="priceGrid"></div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="block" style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Bring the last 90 days of your CRM.</h2>
+          <p>Grab a 30-minute call. We'll map your biggest lever — free, no obligation.</p>
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="openBooking()">Book a Call</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand"><span class="logo-mark">N</span>Northpeak</a>
+        <p>B2B growth consulting for software &amp; services companies. Strategy, acquisition, and revenue operations.</p>
+        <p style="color:rgba(255,255,255,.5)">hello@northpeak.co · San Francisco · London</p>
+      </div>
+      <div><h4>Services</h4><a href="#services">Growth Strategy</a><a href="#services">Paid Acquisition</a><a href="#services">SEO &amp; Content</a><a href="#services">RevOps</a></div>
+      <div><h4>Company</h4><a href="#clients">Clients</a><a href="#testimonials">Case Studies</a><a href="#pricing">Pricing</a><a href="#top">About</a></div>
+      <div><h4>Get started</h4><a href="javascript:void(0)" onclick="openBooking()">Book a Call</a><a href="#top">Newsletter</a><a href="#top">LinkedIn</a><a href="#top">Careers</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Northpeak Consulting, Inc. All rights reserved.</span>
+      <span>Privacy · Terms · Security</span>
+    </div>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeBooking()">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <div><h3>Book a Free Call</h3><p>30 minutes with a senior strategist. Pick a time that works.</p></div>
+      <button class="close" onclick="closeBooking()">×</button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <div class="cal">
+        <div class="cal-head">
+          <button class="cal-nav" id="prevM">‹</button>
+          <b id="calTitle">Month</b>
+          <button class="cal-nav" id="nextM">›</button>
+        </div>
+        <div class="cal-dow"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+      <div class="field">
+        <label>Available times</label>
+        <div class="slots" id="slots"></div>
+        <div class="hint" id="slotHint">Select a date to see open slots.</div>
+      </div>
+      <div class="field"><label>Your name</label><input id="fName" placeholder="Jordan Avery" /></div>
+      <div class="two">
+        <div class="field"><label>Work email</label><input id="fEmail" placeholder="you@company.com" /></div>
+        <div class="field"><label>Company</label><input id="fCompany" placeholder="e.g. Hearth & Crumb" /></div>
+      </div>
+      <div class="field"><label>What do you want to solve? (optional)</label><textarea id="fMsg" rows="3" placeholder="e.g. We close 8% of demos and want to double it."></textarea></div>
+      <button class="btn btn-primary btn-lg" style="width:100%" id="submitBtn" onclick="submitBooking()">Confirm Booking</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+
+<script src="app.js" defer></script>
+</body>
+</html>

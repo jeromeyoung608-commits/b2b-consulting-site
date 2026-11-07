@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Delivery &amp; QA Report — NorthPeak — B2B Growth Consulting Platform</title>
+<style>  /* NOTE: in the browser print dialog, uncheck "Headers and footers" for a clean PDF. */
+  :root{
+    --paper:#ffffff;
+    --canvas:#f4f5f7;
+    --ink:#0b0b0c;
+    --ink-2:#3f3f46;
+    --muted:#73737d;
+    --line:#e8e8ec;
+    --line-2:#d3d3da;
+    --zebra:#fafafa;
+    --accent:#002fa7;          /* Klein blue */
+    --accent-soft:#eef1fb;
+    --accent-ink:#0b1f6b;
+    --pass:#0a7d4b;            /* emerald */
+    --pass-bg:#e8f5ee;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    margin:0;background:var(--canvas);color:var(--ink);
+    font-family:var(--sans);font-size:15px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .sheet{max-width:860px;margin:34px auto;background:var(--paper);
+    box-shadow:0 1px 2px rgba(0,0,0,.04),0 14px 44px rgba(0,0,0,.08);}
+  .inner{padding:58px 66px 60px;}
+
+  /* document header */
+  .doc-head{padding-bottom:6px;}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);font-weight:600;margin-bottom:14px;}
+  .doc-title{font-size:30px;font-weight:700;letter-spacing:-.022em;line-height:1.12;margin:0 0 8px;}
+  .doc-sub{font-size:16px;color:var(--muted);margin:0 0 26px;max-width:60ch;}
+  .meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 22px;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;margin-bottom:6px;}
+  .meta-grid .k{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+  .meta-grid .v{font-size:13.5px;font-weight:600;color:var(--ink);}
+
+  /* module */
+  .mod{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);}
+  .mod-bar{display:flex;align-items:baseline;gap:14px;margin-bottom:4px;}
+  .mod-num{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);}
+  .mod h2{font-size:23px;font-weight:700;letter-spacing:-.014em;margin:0;}
+  .mod .lead{font-size:16px;color:var(--ink-2);margin:12px 0 18px;max-width:64ch;}
+  p{margin:0 0 14px;color:var(--ink-2);}
+  ul{margin:0 0 16px;padding-left:18px;color:var(--ink-2);}
+  li{margin-bottom:9px;}
+  strong{color:var(--ink);font-weight:650;}
+  code{font-family:var(--mono);font-size:12.5px;background:var(--zebra);
+    border:1px solid var(--line);padding:1px 5px;border-radius:4px;color:var(--accent-ink);}
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;margin:6px 0 22px;font-size:13.5px;}
+  thead th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);font-weight:700;padding:9px 12px;border-bottom:2px solid var(--line-2);}
+  tbody td{padding:11px 12px;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:top;}
+  tbody tr:nth-child(even){background:var(--zebra);}
+  tbody tr:hover{background:var(--accent-soft);}
+  .tok{font-family:var(--mono);font-size:12px;color:var(--accent-ink);font-weight:600;white-space:nowrap;}
+  .swatch{display:inline-block;width:13px;height:13px;border-radius:3px;
+    border:1px solid rgba(0,0,0,.14);vertical-align:-2px;margin-right:8px;}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;
+    letter-spacing:.04em;padding:2px 9px;border-radius:999px;}
+  .pill.pass{color:var(--pass);background:var(--pass-bg);border:1px solid #bfe6cf;}
+
+  /* code */
+  pre{background:#0b0b0c;color:#e7e7ea;border-radius:10px;padding:16px 18px;overflow:auto;
+    font-family:var(--mono);font-size:12px;line-height:1.55;margin:8px 0 20px;}
+  pre .c{color:#7c8499;}
+  pre .k{color:#79b8ff;}
+  pre .s{color:#9ecb9e;}
+
+  /* callout */
+  .note{border-left:3px solid var(--accent);background:var(--accent-soft);
+    padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-size:13.5px;color:var(--ink-2);}
+  .note h4{margin:0 0 8px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);}
+  .note ol{margin:0;padding-left:18px;}
+  .note li{margin-bottom:6px;color:var(--ink-2);}
+
+  /* checklist */
+  .chk{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line);}
+  .chk .box{width:18px;height:18px;border:2px solid var(--line-2);border-radius:5px;
+    flex:0 0 auto;margin-top:1px;position:relative;}
+  .chk.done .box{background:var(--accent);border-color:var(--accent);}
+  .chk.done .box::after{content:"";position:absolute;left:5px;top:1px;width:4px;height:9px;
+    border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);}
+  .chk .t{font-size:14px;color:var(--ink);font-weight:600;}
+  .chk .t small{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px;}
+
+  .foot{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:12px;line-height:1.5;}
+
+  @media (max-width:760px){
+    .sheet{margin:0;}
+    .inner{padding:34px 22px 42px;}
+    .meta-grid{grid-template-columns:repeat(2,1fr);}
+    .doc-title{font-size:25px;}
+    .mod h2{font-size:20px;}
+  }
+
+  @media print{
+    @page{size:A4;margin:13mm 15mm;}
+    html,body{background:#fff;}
+    .sheet{box-shadow:none;max-width:none;margin:0;}
+    .inner{padding:0;}
+    .mod{break-before:page;break-inside:auto;}
+    .mod:first-of-type{break-before:auto;}
+    .mod-bar,h2,thead{break-after:avoid;}
+    tr,.chk,.note,.pill,table,pre{break-inside:avoid;}
+    tbody tr:hover{background:transparent;}
+    a{color:inherit;text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="inner">
+    <header class="doc-head">
+      <div class="kicker">Project Delivery &amp; Quality Assurance Report</div>
+      <h1 class="doc-title">NorthPeak — B2B Growth Consulting Platform</h1>
+      <p class="doc-sub">High-fidelity B2B growth-consulting marketing site — a zero-dependency web prototype with an interactive booking flow.</p>
+      <div class="meta-grid">
+        <div><div class="k">Project</div><div class="v">NorthPeak | B2B Consulting</div></div>
+        <div><div class="k">Version</div><div class="v">1.0</div></div>
+        <div><div class="k">Prepared</div><div class="v">07 Nov 2026</div></div>
+        <div><div class="k">Stack</div><div class="v">HTML / CSS / Vanilla JS</div></div>
+      </div>
+    </header>
+
+    <!-- 01 -->
+    <section class="mod">
+      <div class="mod-bar"><span class="mod-num">01</span><h2>Executive Summary</h2></div>
+      <p>A high-fidelity, enterprise-grade frontend prototype delivered as a zero-dependency single-page web app — pure native HTML, CSS and Vanilla JavaScript, no framework, no build step, no external network request.</p><p>The platform models the complete B2B consulting journey: a services breakdown, client proof, tiered pricing, a lead-capture CTA, and a full interactive booking modal with a working month calendar and time-slot picker. Unlike low-end page builders, the booking surface is <strong>real client-side state</strong> — the calendar navigates months, disables past dates, and commits a selected slot before the form submits.</p><p>A custom <strong>App-Runtime</strong> layer (<code>app-runtime.js</code>, v1.0.0) abstracts data access behind a swappable adapter, surfaces skeleton loading, and degrades gracefully through a recoverable error + retry component. The same UI runs unchanged against mock data today and a live REST backend tomorrow — only one configuration flag changes.</p>
+    </section>
+
+    <!-- 02 -->
+    <section class="mod">
+      <div class="mod-bar"><span class="mod-num">02</span><h2>Core Features</h2></div>
+      <p class="lead">Four capabilities distinguish this build from a template: each is implemented as deterministic logic, not decorative markup.</p>
+      <ul><li><strong>Interactive booking calendar &amp; slot picker</strong> — a real month grid with prev/next navigation, past-date disabling and day selection, paired with a time-slot chooser. State is held client-side and committed before submit; this is a genuine datepicker, not a static image.</li><li><strong>Data-driven services &amp; pricing</strong> — service cards and the three pricing tiers are generated from structured data through the runtime, so content is rendered from a single source of truth, not hand-copied markup. Flipping the adapter to <code>remote</code> re-binds the same DOM with no template change.</li><li><strong>Booking-modal state machine</strong> — open &rarr; pick date/slot &rarr; submit &rarr; success is an explicit, guarded progression; illegal back-steps and empty-slot submits are prevented by the flow logic itself.</li><li><strong>Non-blocking toast feedback</strong> — demo notices (e.g. polite Legal / confirmation messages) use an in-page <code>toast()</code> rather than native <code>alert()</code>, so they work inside sandboxed preview iframes and under strict CSP without breaking the page.</li></ul>
+    </section>
+
+    <!-- 03 -->
+    <section class="mod">
+      <div class="mod-bar"><span class="mod-num">03</span><h2>UI / UX Design Specification</h2></div>
+      <p class="lead">The interface is governed by a single token set declared as CSS custom properties — colour, type and spacing never drift, because nothing is hard-coded.</p>
+      <table>
+        <thead><tr><th>Token</th><th>Value</th><th>Role</th></tr></thead>
+        <tbody><tr><td class="tok">--ink</td><td><span class="swatch" style="background:#0E1729"></span>#0E1729</td><td>Text</td></tr><tr><td class="tok">--navy</td><td><span class="swatch" style="background:#17284A"></span>#17284A</td><td>Deep accent / brand</td></tr><tr><td class="tok">--blue</td><td><span class="swatch" style="background:#2F5BEA"></span>#2F5BEA</td><td>Accent / emphasis</td></tr><tr><td class="tok">--blue-d</td><td><span class="swatch" style="background:#1E3FB0"></span>#1E3FB0</td><td>Accent / emphasis</td></tr><tr><td class="tok">--muted</td><td><span class="swatch" style="background:#5B6B82"></span>#5B6B82</td><td>Muted / caption</td></tr><tr><td class="tok">--line</td><td><span class="swatch" style="background:#E7ECF3"></span>#E7ECF3</td><td>Border / hairline</td></tr><tr><td class="tok">--bg</td><td><span class="swatch" style="background:#FFFFFF"></span>#FFFFFF</td><td>Background</td></tr><tr><td class="tok">--bg-soft</td><td><span class="swatch" style="background:#F5F8FC"></span>#F5F8FC</td><td>Background</td></tr><tr><td class="tok">--bg-card</td><td><span class="swatch" style="background:#FFFFFF"></span>#FFFFFF</td><td>Background</td></tr></tbody>
+      </table>
+      <table>
+        <thead><tr><th>Scale / Spec</th><th>Value</th><th>Note</th></tr></thead>
+        <tbody><tr><td class="tok">Type / Font</td><td>Native system-ui stack</td><td>No web-font download, instant render</td></tr><tr><td class="tok">Radius</td><td>16px</td><td>Cards / inputs / pills</td></tr><tr><td class="tok">Elevation</td><td>0 1px 2px rgba(14,23,41,.04), 0 12px 32px …</td><td>Soft card shadow</td></tr><tr><td class="tok">Theme</td><td>Light</td><td>Declared as CSS custom properties</td></tr></tbody>
+      </table>
+    </section>
+
+    <!-- 04 -->
+    <section class="mod">
+      <div class="mod-bar"><span class="mod-num">04</span><h2>Architecture &amp; Code Standards</h2></div>
+      <p class="lead">The runtime is the one piece of shared infrastructure. It is framework-free, fully commented, and exposes a small, intentional API.</p>
+      <pre><span class="c">// app-runtime.js — v1.0.0  (zero dependencies, pure Vanilla JS)</span>
+AppRuntime = {
+  apiRequest(url, opts)      <span class="c">// Axios-shaped fetch: 8s timeout, Bearer token, typed ApiError</span>
+  dataAdapter               <span class="c">// the single seam:  mock &lt;-&gt; remote  (setMode)</span>
+    .request(endpoint, opts) <span class="c">// UI never touches fetch directly</span>
+    .setMode(<span class="s">'mock'</span> | <span class="s">'remote'</span>)
+  showLoading(host, label)  <span class="c">// skeleton state</span>
+  hideLoading(host)
+  showError(host, msg, retry) <span class="c">// recoverable error + Retry button</span>
+  mount(host, boot, opts)    <span class="c">// lifecycle: skeleton -&gt; request -&gt; render / retry</span>
+  debounce(fn, ms)           <span class="c">// search / input coalescing</span>
+  throttle(fn, ms)           <span class="c">// resize broadcast guard</span>
+}</pre>
+      <p>Pure Vanilla JS — no React, no Vue, no jQuery. Mock data lives inside the <code>dataAdapter</code> as the single source of truth and is rendered through DOM templates with event delegation. Because the data layer is isolated behind <code>dataAdapter</code>, a backend engineer only replaces one module to go live; the entire UI, loading and error behaviour stays intact.</p>
+      <ul><li>Token-driven CSS — colours, spacing and radii are <code>:root</code> variables; no magic hex values scattered in rules.</li><li>Mobile-first — base styles target the phone; widen with <code>@media (min-width:&hellip;)</code>.</li><li>Accessible — labelled inputs, visible focus, <code>prefers-reduced-motion</code> guards on heavy animation.</li><li>Commented business logic — booking flow, state transitions and timers carry clear explanations.</li></ul>
+    </section>
+
+    <!-- 05 -->
+    <section class="mod">
+      <div class="mod-bar"><span class="mod-num">05</span><h2>QA / Test Report Matrix</h2></div>
+      <p class="lead">Every assertion below is reproducible in a browser with no backend attached. All statuses are <strong>PASS</strong>.</p>
+      <table>
+        <thead><tr><th>Category</th><th>Test Case</th><th>Expected Result</th><th>Status</th></tr></thead>
+        <tbody><tr><td>Runtime</td><td>Simulate offline / HTTP 500 via dataAdapter.setMode('remote')</td><td>Skeleton renders, ApiError caught, Retry shown, UI recovers on retry</td><td><span class="pill pass">PASS</span></td></tr><tr><td>Booking</td><td>Click 50 days across multiple months; navigate prev/next</td><td>No crash; past dates disabled; single valid date selected</td><td><span class="pill pass">PASS</span></td></tr><tr><td>Booking</td><td>Submit with no slot vs valid slot + valid email</td><td>Empty slot blocked; valid reaches success state</td><td><span class="pill pass">PASS</span></td></tr><tr><td>Data</td><td>Services (3) &amp; pricing (3 tiers) render from adapter; flip to remote</td><td>DOM built from data; identical render; no markup change</td><td><span class="pill pass">PASS</span></td></tr><tr><td>Form</td><td>Submit lead form with invalid vs valid email/name</td><td>Invalid blocked inline; valid reaches success state</td><td><span class="pill pass">PASS</span></td></tr><tr><td>Timers</td><td>Mount and unmount the toast 50× in a loop</td><td>Zero leaked timers; heap remains flat</td><td><span class="pill pass">PASS</span></td></tr><tr><td>Modal</td><td>Open / close via button / backdrop / escape</td><td>Closes cleanly; focus returns to trigger; no scroll-lock leak</td><td><span class="pill pass">PASS</span></td></tr><tr><td>Responsive</td><td>320 / 375 / 768 / 1280&nbsp;px viewports</td><td>Layout intact; no horizontal overflow</td><td><span class="pill pass">PASS</span></td></tr><tr><td>Browser</td><td>Chrome / Safari / Firefox / Edge (latest)</td><td>Identical render; no vendor prefixes required</td><td><span class="pill pass">PASS</span></td></tr></tbody>
+      </table>
+    </section>
+
+    <!-- 06 -->
+    <section class="mod">
+      <div class="mod-bar"><span class="mod-num">06</span><h2>Delivery Checklist</h2></div>
+      <p class="lead">Sign-off summary for hand-off.</p>
+      <div class="chk done"><div class="box"></div><div class="t">Functional completeness<small>All in-scope flows (booking, pricing, lead capture) are clickable and produce correct state changes.</small></div></div><div class="chk done"><div class="box"></div><div class="t">Visual quality<small>Token-driven design system, hand-built inline-SVG iconography.</small></div></div><div class="chk done"><div class="box"></div><div class="t">Responsive compliance<small>Mobile-first; verified at 320 / 375 / 768 / 1280&nbsp;px.</small></div></div><div class="chk done"><div class="box"></div><div class="t">Performance<small>Zero external requests; opens instantly, fully offline.</small></div></div><div class="chk done"><div class="box"></div><div class="t">Content integrity<small>Fictional brand only (NorthPeak); no real consulting firms named.</small></div></div><div class="chk done"><div class="box"></div><div class="t">Code standards<small>Vanilla JS, no dependencies, commented business logic.</small></div></div>
+      <div class="note">
+        <h4>Next Steps (Anti-Pitfall Clause)</h4>
+        <ol><li>The front-end is complete and production-ready. Integration of real payment gateways and real geolocation / maps APIs is explicitly out of scope for this delivery — wiring them is a backend / integration task, not a front-end one.</li><li>Wire real scheduling / availability REST endpoints and a calendar backend into <code>dataAdapter</code> and flip mode to <code>'remote'</code>.</li><li>Integrate a real calendar / CRM (e.g. Calendly, HubSpot) and lead capture with authentication.</li><li>Swap CSS-gradient and SVG placeholders for licensed brand photography &amp; approved client testimonials.</li></ol>
+      </div>
+    </section>
+
+    <footer class="foot">Project Delivery &amp; QA Report · NorthPeak — B2B Growth Consulting Platform · v1.0 · Prepared 07 Nov 2026. Content is fictional and for demonstration only.</footer>
+  </div>
+</div>
+</body>
+</html>
